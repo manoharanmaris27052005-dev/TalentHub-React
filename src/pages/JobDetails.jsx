@@ -7,38 +7,72 @@ function JobDetails() {
   const { id } = useParams();
 
   const job = jobsData.find(
-    (item) => item.id === Number(id)
+    (item) =>
+      String(item.id) === String(id)
   );
 
   if (!job) {
-    return <h2>Job Not Found</h2>;
+
+    return (
+
+      <div className="details-container">
+
+        <h2>
+          Job Not Found
+        </h2>
+
+      </div>
+
+    );
+
   }
 
   return (
+
     <div className="details-container">
 
-      <h1>{job.title}</h1>
+      <h1>
+        {job.title}
+      </h1>
 
       <p>
-        <strong>Company:</strong> {job.company}
+        <strong>
+          Company:
+        </strong>
+        {" "}
+        {job.company}
       </p>
 
       <p>
-        <strong>Location:</strong> {job.location}
+        <strong>
+          Location:
+        </strong>
+        {" "}
+        {job.location}
       </p>
 
       <p>
-        <strong>Salary:</strong> {job.salary}
+        <strong>
+          Salary:
+        </strong>
+        {" "}
+        {job.salary}
       </p>
 
       <p>
-        <strong>Experience:</strong> {job.experience}
+        <strong>
+          Experience:
+        </strong>
+        {" "}
+        {job.experience}
       </p>
 
       <ApplyForm />
 
     </div>
+
   );
+
 }
 
 export default JobDetails;

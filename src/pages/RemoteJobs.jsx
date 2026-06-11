@@ -86,15 +86,14 @@ function RemoteJobs() {
                 💰 {job.salary}
               </p>
 
-              <button
-                onClick={() =>
-                  navigate(
-                    `/job/${job.id}`
-                  )
-                }
-              >
-                Apply Now
-              </button>
+             <button
+  onClick={() => {
+    console.log(job.id);
+    navigate(`/job/${job.id}`);
+  }}
+>
+  Apply Now
+</button>
 
             </div>
 
