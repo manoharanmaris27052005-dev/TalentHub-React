@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 
 function ApplyForm() {
 
@@ -10,46 +9,48 @@ function ApplyForm() {
 
   const submitApplication = () => {
 
-    axios.post(
-      "http://localhost:3000/applications",
-      {
-        name,
-        email,
-        phone,
-        resume
-      }
-    )
-    .then(() => {
+    if (
+      !name ||
+      !email ||
+      !phone ||
+      !resume
+    ) {
 
       alert(
-        "Application Submitted Successfully"
+        "Please fill all fields"
       );
 
-      setName("");
-      setEmail("");
-      setPhone("");
-      setResume("");
+      return;
 
-    })
-    .catch((error) => {
+    }
 
-      console.log(error);
+    alert(
+      "Application Submitted Successfully 🎉"
+    );
 
-    });
+    setName("");
+    setEmail("");
+    setPhone("");
+    setResume("");
 
   };
 
   return (
+
     <div className="apply-form">
 
-      <h2>Apply For Job</h2>
+      <h2>
+        Apply For Job
+      </h2>
 
       <input
         type="text"
         placeholder="Enter Name"
         value={name}
         onChange={(e) =>
-          setName(e.target.value)
+          setName(
+            e.target.value
+          )
         }
       />
 
@@ -58,7 +59,9 @@ function ApplyForm() {
         placeholder="Enter Email"
         value={email}
         onChange={(e) =>
-          setEmail(e.target.value)
+          setEmail(
+            e.target.value
+          )
         }
       />
 
@@ -67,7 +70,9 @@ function ApplyForm() {
         placeholder="Enter Phone"
         value={phone}
         onChange={(e) =>
-          setPhone(e.target.value)
+          setPhone(
+            e.target.value
+          )
         }
       />
 
@@ -76,18 +81,24 @@ function ApplyForm() {
         placeholder="Resume Link"
         value={resume}
         onChange={(e) =>
-          setResume(e.target.value)
+          setResume(
+            e.target.value
+          )
         }
       />
 
       <button
-        onClick={submitApplication}
+        onClick={
+          submitApplication
+        }
       >
         Submit Application
       </button>
 
     </div>
+
   );
+
 }
 
 export default ApplyForm;
