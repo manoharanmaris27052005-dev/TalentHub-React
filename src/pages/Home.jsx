@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import JobCard from "../components/JobCard";
+import jobsData from "../data/jobs";
 
 function Home() {
 
@@ -19,7 +19,7 @@ function Home() {
 
   useEffect(() => {
 
-    fetchJobs();
+    setJobs(jobsData);
 
     const saved =
       JSON.parse(
@@ -31,25 +31,6 @@ function Home() {
     setSavedJobs(saved);
 
   }, []);
-
-  const fetchJobs = async () => {
-
-    try {
-
-      const response =
-        await axios.get(
-          "http://localhost:3000/jobs"
-        );
-
-      setJobs(response.data);
-
-    } catch (error) {
-
-      console.log(error);
-
-    }
-
-  };
 
   const saveJob = (job) => {
 
@@ -79,6 +60,10 @@ function Home() {
     localStorage.setItem(
       "savedJobs",
       JSON.stringify(updatedJobs)
+    );
+
+    alert(
+      "Job Saved Successfully"
     );
 
   };
@@ -115,12 +100,10 @@ function Home() {
 
     <div>
 
-      {/* HERO */}
-
       <div className="hero">
 
         <h1>
-          Find Your Dream Job 
+          Find Your Dream Job
         </h1>
 
         <p>
@@ -129,8 +112,6 @@ function Home() {
         </p>
 
       </div>
-
-      {/* STATS */}
 
       <div className="stats-container">
 
@@ -160,8 +141,6 @@ function Home() {
 
       </div>
 
-      {/* SEARCH */}
-
       <div className="search-box">
 
         <input
@@ -176,8 +155,6 @@ function Home() {
         />
 
       </div>
-
-      {/* FILTER */}
 
       <div className="filter-section">
 
@@ -249,13 +226,9 @@ function Home() {
 
       </div>
 
-      {/* TITLE */}
-
       <h2 className="section-title">
         Featured Jobs
       </h2>
-
-      {/* JOBS */}
 
       <div className="jobs-container">
 
