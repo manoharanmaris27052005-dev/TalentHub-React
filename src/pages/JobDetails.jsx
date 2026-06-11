@@ -5,7 +5,6 @@ import ApplyForm from "../components/ApplyForm";
 function JobDetails() {
 
   const { id } = useParams();
-
   const navigate = useNavigate();
 
   const job = jobsData.find(
@@ -21,7 +20,6 @@ function JobDetails() {
 
         <button
           onClick={() => navigate(-1)}
-          className="back-btn"
         >
           ← Back
         </button>
@@ -42,7 +40,6 @@ function JobDetails() {
 
       <button
         onClick={() => navigate(-1)}
-        className="back-btn"
       >
         ← Back
       </button>
@@ -52,35 +49,19 @@ function JobDetails() {
       </h1>
 
       <p>
-        <strong>
-          Company:
-        </strong>
-        {" "}
-        {job.company}
+        <strong>Company:</strong> {job.company}
       </p>
 
       <p>
-        <strong>
-          Location:
-        </strong>
-        {" "}
-        {job.location}
+        <strong>Location:</strong> {job.location}
       </p>
 
       <p>
-        <strong>
-          Salary:
-        </strong>
-        {" "}
-        {job.salary}
+        <strong>Salary:</strong> {job.salary}
       </p>
 
       <p>
-        <strong>
-          Experience:
-        </strong>
-        {" "}
-        {job.experience}
+        <strong>Experience:</strong> {job.experience}
       </p>
 
       <ApplyForm />
