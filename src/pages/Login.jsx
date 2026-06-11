@@ -5,6 +5,7 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = (e) => {
 
@@ -16,35 +17,35 @@ function Login() {
     ) {
 
       alert("Please fill all fields");
+      return;
+
+    }
+
+    if (
+      email === "Maris123@gmail.com" &&
+      password === "Maris@123"
+    ) {
+
+      sessionStorage.setItem(
+        "isLoggedIn",
+        "true"
+      );
+
+      sessionStorage.setItem(
+        "userEmail",
+        email
+      );
+
+      alert(
+        "Admin Login Successful"
+      );
+
+      window.location.href =
+        "/admin";
 
       return;
 
     }
-    if (
-  email === "Maris123@gmail.com" &&
-  password === "Maris@123"
-) {
-
-  sessionStorage.setItem(
-    "isLoggedIn",
-    "true"
-  );
-
-  sessionStorage.setItem(
-    "userEmail",
-    email
-  );
-
-  alert(
-    "Admin Login Successful"
-  );
-
-  window.location.href =
-    "/admin";
-
-  return;
-
-}
 
     const storedUser =
       JSON.parse(
@@ -134,16 +135,37 @@ function Login() {
 
             <label>Password</label>
 
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) =>
-                setPassword(
-                  e.target.value
-                )
-              }
-            />
+            <div className="password-box">
+
+              <input
+                type={
+                  showPassword
+                    ? "text"
+                    : "password"
+                }
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) =>
+                  setPassword(
+                    e.target.value
+                  )
+                }
+              />
+
+              <span
+                className="show-password"
+                onClick={() =>
+                  setShowPassword(
+                    !showPassword
+                  )
+                }
+              >
+                {showPassword
+                  ? "🙈"
+                  : "👁️"}
+              </span>
+
+            </div>
 
           </div>
 
