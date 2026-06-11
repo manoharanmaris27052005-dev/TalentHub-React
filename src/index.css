@@ -1277,4 +1277,42 @@ button{
 
   background:#6d28d9;
 
+  
+}
+.apply-form {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.apply-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.apply-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.apply-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #22c55e;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.apply-form button:hover {
+  background: #16a34a;
 }
