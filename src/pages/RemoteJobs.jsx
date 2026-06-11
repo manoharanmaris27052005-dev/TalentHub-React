@@ -8,14 +8,16 @@ function RemoteJobs() {
 
   useEffect(() => {
 
-    setJobs(jobsData);
+    console.log("Jobs Data:", jobsData);
+
+    setJobs(jobsData || []);
 
   }, []);
 
   const filteredJobs =
     jobs.filter((job) =>
       job.title
-        .toLowerCase()
+        ?.toLowerCase()
         .includes(
           search.toLowerCase()
         )
@@ -24,6 +26,10 @@ function RemoteJobs() {
   return (
 
     <div className="remote-page">
+
+      <h2>
+        Total Jobs: {jobs.length}
+      </h2>
 
       <div className="remote-hero">
 
@@ -54,7 +60,8 @@ function RemoteJobs() {
 
       <div className="jobs-container">
 
-        {
+        {filteredJobs.length > 0 ? (
+
           filteredJobs.map((job) => (
 
             <div
@@ -85,7 +92,14 @@ function RemoteJobs() {
             </div>
 
           ))
-        }
+
+        ) : (
+
+          <h3>
+            No Jobs Found
+          </h3>
+
+        )}
 
       </div>
 
