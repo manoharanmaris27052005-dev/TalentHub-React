@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import jobsData from "../data/jobs";
 
 function RemoteJobs() {
+
+  const navigate = useNavigate();
 
   const [jobs, setJobs] = useState([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-
-    console.log("Jobs Data:", jobsData);
 
     setJobs(jobsData || []);
 
@@ -85,7 +86,13 @@ function RemoteJobs() {
                 💰 {job.salary}
               </p>
 
-              <button>
+              <button
+                onClick={() =>
+                  navigate(
+                    `/job/${job.id}`
+                  )
+                }
+              >
                 Apply Now
               </button>
 
