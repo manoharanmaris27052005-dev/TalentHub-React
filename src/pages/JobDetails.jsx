@@ -19,14 +19,13 @@ function JobDetails() {
       <div className="details-container">
 
         <button
+          className="back-btn"
           onClick={() => navigate(-1)}
         >
           ← Back
         </button>
 
-        <h2>
-          Job Not Found
-        </h2>
+        <h2>Job Not Found</h2>
 
       </div>
 
@@ -39,30 +38,37 @@ function JobDetails() {
     <div className="details-container">
 
       <button
+        className="back-btn"
         onClick={() => navigate(-1)}
       >
         ← Back
       </button>
 
-      <h1>
-        {job.title}
-      </h1>
+      <div className="job-details-card">
 
-      <p>
-        <strong>Company:</strong> {job.company}
-      </p>
+        <h1>{job.title}</h1>
 
-      <p>
-        <strong>Location:</strong> {job.location}
-      </p>
+        <div className="job-info">
 
-      <p>
-        <strong>Salary:</strong> {job.salary}
-      </p>
+          <p>
+            🏢 <strong>Company:</strong> {job.company}
+          </p>
 
-      <p>
-        <strong>Experience:</strong> {job.experience}
-      </p>
+          <p>
+            📍 <strong>Location:</strong> {job.location}
+          </p>
+
+          <p>
+            💰 <strong>Salary:</strong> {job.salary}
+          </p>
+
+          <p>
+            👨‍💻 <strong>Experience:</strong> {job.experience}
+          </p>
+
+        </div>
+
+      </div>
 
       <ApplyForm />
 
