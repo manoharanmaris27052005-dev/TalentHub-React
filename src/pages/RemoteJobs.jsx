@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import jobsData from "../data/jobs";
 
 function RemoteJobs() {
 
@@ -8,22 +8,7 @@ function RemoteJobs() {
 
   useEffect(() => {
 
-    axios
-      .get(
-        "http://localhost:3000/jobs"
-      )
-      .then((response) => {
-
-        setJobs(
-          response.data
-        );
-
-      })
-      .catch((error) => {
-
-        console.log(error);
-
-      });
+    setJobs(jobsData);
 
   }, []);
 
@@ -42,7 +27,9 @@ function RemoteJobs() {
 
       <div className="remote-hero">
 
-        <h1>Remote Jobs</h1>
+        <h1>
+          Remote Jobs
+        </h1>
 
         <p>
           Find your dream tech job
@@ -67,36 +54,38 @@ function RemoteJobs() {
 
       <div className="jobs-container">
 
-        {filteredJobs.map((job) => (
+        {
+          filteredJobs.map((job) => (
 
-          <div
-            key={job.id}
-            className="remote-job-card"
-          >
+            <div
+              key={job.id}
+              className="remote-job-card"
+            >
 
-            <h2>
-              {job.title}
-            </h2>
+              <h2>
+                {job.title}
+              </h2>
 
-            <p>
-              🏢 {job.company}
-            </p>
+              <p>
+                🏢 {job.company}
+              </p>
 
-            <p>
-              📍 {job.location}
-            </p>
+              <p>
+                📍 {job.location}
+              </p>
 
-            <p>
-              💰 {job.salary}
-            </p>
+              <p>
+                💰 {job.salary}
+              </p>
 
-            <button>
-              Apply Now
-            </button>
+              <button>
+                Apply Now
+              </button>
 
-          </div>
+            </div>
 
-        ))}
+          ))
+        }
 
       </div>
 
