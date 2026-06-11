@@ -24,6 +24,28 @@ function ApplyForm() {
 
     }
 
+    const applications =
+      JSON.parse(
+        localStorage.getItem(
+          "applications"
+        )
+      ) || [];
+
+    applications.push({
+      id: Date.now(),
+      name,
+      email,
+      phone,
+      resume
+    });
+
+    localStorage.setItem(
+      "applications",
+      JSON.stringify(
+        applications
+      )
+    );
+
     alert(
       "Application Submitted Successfully 🎉"
     );
