@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import jobsData from "../data/jobs";
 import ApplyForm from "../components/ApplyForm";
 
 function JobDetails() {
 
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const job = jobsData.find(
     (item) =>
@@ -16,6 +18,13 @@ function JobDetails() {
     return (
 
       <div className="details-container">
+
+        <button
+          onClick={() => navigate(-1)}
+          className="back-btn"
+        >
+          ← Back
+        </button>
 
         <h2>
           Job Not Found
@@ -30,6 +39,13 @@ function JobDetails() {
   return (
 
     <div className="details-container">
+
+      <button
+        onClick={() => navigate(-1)}
+        className="back-btn"
+      >
+        ← Back
+      </button>
 
       <h1>
         {job.title}

@@ -1332,3 +1332,10 @@ button{
   cursor: pointer;
   font-size: 18px;
 }
+.back-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
