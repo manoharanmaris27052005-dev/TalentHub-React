@@ -1,0 +1,271 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+}
+
+/* Navbar */
+
+.navbar {
+  background: #2563eb;
+  color: white;
+  padding: 15px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.nav-links a:hover {
+  color: #dbeafe;
+}
+
+/* Heading */
+
+h1 {
+  text-align: center;
+  margin: 30px 0;
+  color: #1e293b;
+}
+
+/* Search */
+
+input {
+  display: block;
+
+  width: 350px;
+
+  padding: 12px;
+
+  margin: 20px auto;
+
+  border: 1px solid #ccc;
+
+  border-radius: 8px;
+
+  font-size: 16px;
+}
+
+/* Jobs Grid */
+
+.jobs-container {
+  width: 90%;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(300px, 1fr));
+
+  gap: 20px;
+}
+
+/* Job Card */
+
+.job-card {
+  background: white;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.1);
+
+  transition: 0.3s;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+}
+
+.job-card h2,
+.job-card h3 {
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.job-card p {
+  margin: 8px 0;
+  color: #555;
+}
+
+/* Buttons */
+
+button {
+  margin-top: 10px;
+
+  padding: 10px 18px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: #2563eb;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+/* Saved Jobs */
+
+.saved-title {
+  margin-top: 50px;
+}
+
+/* Remove Button */
+
+.remove-btn {
+  background: crimson;
+}
+
+.remove-btn:hover {
+  background: darkred;
+}
+
+/* Job Details */
+
+.details-container {
+  width: 650px;
+
+  margin: 50px auto;
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 2px 10px rgba(0,0,0,0.1);
+}
+
+.details-container h1 {
+  text-align: left;
+}
+
+.details-container p {
+  margin: 15px 0;
+  font-size: 18px;
+}
+
+/* Apply Form */
+
+.apply-form {
+  margin-top: 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.apply-form input {
+  width: 100%;
+  margin: 0;
+}
+
+/* Login/Register */
+
+.form-container {
+  width: 400px;
+
+  margin: 50px auto;
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-container input {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.form-container button {
+  width: 100%;
+}
+
+/* Admin Dashboard */
+
+.admin-container {
+  width: 90%;
+
+  margin: auto;
+}
+
+.admin-container input {
+  width: 250px;
+
+  margin: 10px;
+}
+
+.delete-btn {
+  background: crimson;
+}
+
+.delete-btn:hover {
+  background: darkred;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  input {
+    width: 90%;
+  }
+
+  .form-container {
+    width: 90%;
+  }
+
+  .details-container {
+    width: 90%;
+  }
+}
